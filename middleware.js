@@ -20,6 +20,8 @@ export function middleware(request) {
   // Si el número de visitas es menor que 3, continuar y actualizar la cookie
   response.cookies.set("visits", visits.toString(), {
     maxAge: 60 * 60 * 24 * 365, // La cookie durará 1 año
+    path: "/", // La cookie funciona en toda la página
+    sameSite: "lax", // Lax es menos estricto y funciona bien en móviles
   });
 
   return response;
@@ -27,5 +29,5 @@ export function middleware(request) {
 
 // Configurar el middleware para que se ejecute solo en la ruta principal ('/')
 export const config = {
-  matcher: "/:path*",
+  matcher: "/",
 };
