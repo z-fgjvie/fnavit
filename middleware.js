@@ -22,6 +22,7 @@ export function middleware(request) {
     maxAge: 60 * 60 * 24 * 365, // La cookie durará 1 año
     path: "/", // La cookie funciona en toda la página
     sameSite: "lax", // Lax es menos estricto y funciona bien en móviles
+    secure: true,
   });
 
   return response;
