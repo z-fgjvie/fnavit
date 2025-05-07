@@ -27,5 +27,5 @@ export function middleware(request) {
 
 // Configurar el middleware para que se ejecute solo en la ruta principal ('/')
 export const config = {
-  matcher: "/", // Solo se ejecuta en la ruta principal
+  matcher: "/:path*",
 };
