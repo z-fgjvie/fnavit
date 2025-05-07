@@ -1,11 +1,40 @@
+"use client";
 import Footer from "@/components/footer";
 import Landing from "@/components/landing";
+import Loading from "@/components/loading";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [load, setLoad] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Obtenemos las visitas actuales
+    let visitas = parseInt(localStorage.getItem("visitas") || "0", 10);
+
+    // Aumentamos las visitas primero
+    visitas += 1;
+    localStorage.setItem("visitas", visitas.toString());
+
+    if (visitas >= 3) {
+      setLoad(true);
+      setTimeout(() => {
+        router.push("https://micuenta.infonavit.org.mx/?gad_source=1");
+      }, 1000);
+    }
+  }, []);
+
   return (
     <>
-      <Landing />
-      <Footer />
+      {load === true ? (
+        <Loading />
+      ) : (
+        <>
+          <Landing />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
