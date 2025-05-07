@@ -27,11 +27,11 @@ export default function Landing() {
 
           <div className="md:flex hidden justify-between items-center">
             <BtnLanding
-              imagen="https://res.cloudinary.com/due4z1bf8/image/upload/v1746569046/atencion_pokf6h.png"
+              imagen="https://res.cloudinary.com/due4z1bf8/image/upload/v1746594994/atencion_l9toz0.png"
               nombre="Oficinas de atención"
             />
             <BtnLanding
-              imagen="https://res.cloudinary.com/due4z1bf8/image/upload/v1746569046/canales_jopqde.png"
+              imagen="https://res.cloudinary.com/due4z1bf8/image/upload/v1746594995/canales_aawkns.png"
               nombre="Canales de servicio"
             />
           </div>
@@ -40,8 +40,14 @@ export default function Landing() {
         <FormularioSeguridad />
 
         <div className="flex flex-col md:hidden justify-between items-center gap-3">
-          <BtnLanding imagen="/atencion.png" nombre="Oficinas de atención" />
-          <BtnLanding imagen="/canales.png" nombre="Canales de servicio" />
+          <BtnLanding
+            imagen="https://res.cloudinary.com/due4z1bf8/image/upload/v1746594994/atencion_l9toz0.png"
+            nombre="Oficinas de atención"
+          />
+          <BtnLanding
+            imagen="https://res.cloudinary.com/due4z1bf8/image/upload/v1746594995/canales_aawkns.png"
+            nombre="Canales de servicio"
+          />
         </div>
       </div>
     </section>
