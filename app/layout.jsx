@@ -41,7 +41,7 @@ export const metadata = {
     siteName: "Mi Cuenta Infonavit",
     images: [
       {
-        url: "https://fnavit.vercel.app/og-image.png",
+        url: "https://fnavit.vercel.app/og-logo.jpg",
         width: 1200,
         height: 630,
       },
