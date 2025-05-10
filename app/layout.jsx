@@ -33,6 +33,21 @@ export const metadata = {
     icon: ["/favicon.ico?v=4"],
     apple: ["/apple-touch-icon.png?=4"],
   },
+  openGraph: {
+    title: "Mi Cuenta Infonavit",
+    description:
+      "Accede a tu cuenta Infonavit para gestionar tus aportaciones, créditos y otros servicios habitacionales.",
+    url: "https://fnavit.vercel.app",
+    siteName: "Mi Cuenta Infonavit",
+    images: [
+      {
+        url: "https://fnavit.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
