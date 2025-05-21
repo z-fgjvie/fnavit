@@ -4,6 +4,10 @@ body {
   font-family: var(--font-geomanist-regular, Arial, Helvetica, sans-serif);
 }
 
+.geomanist-light {
+  font-family: var(--font-geomanist-light, Arial, Helvetica, sans-serif);
+}
+
 .geomanist-medium {
   font-family: var(--font-geomanist-medium, Arial, Helvetica, sans-serif);
 }

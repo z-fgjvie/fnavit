@@ -1,6 +1,12 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
+const geomanistLight = localFont({
+  src: "./fonts/Geomanist-Light.woff2",
+  variable: "--font-geomanist-light",
+  display: "swap",
+});
+
 const geomanistRegular = localFont({
   src: "./fonts/Geomanist-Regular.woff2",
   variable: "--font-geomanist-regular",
@@ -54,7 +60,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geomanistRegular.variable} ${geomanistBook.variable} ${geomanistMedium.variable} ${geomanistBold.variable} antialiased`}
+        className={`${geomanistLight.variable} ${geomanistRegular.variable} ${geomanistBook.variable} ${geomanistMedium.variable} ${geomanistBold.variable} antialiased`}
       >
         {children}
       </body>
