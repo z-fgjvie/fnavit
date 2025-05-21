@@ -14,32 +14,26 @@ export default function Home() {
   useEffect(() => {
     setModal(true);
 
-    // Obtenemos las visitas actuales
-    let visitas = parseInt(localStorage.getItem("visitas") || "0", 10);
+    // // Obtenemos las visitas actuales
+    // let visitas = parseInt(localStorage.getItem("visitas") || "0", 10);
 
-    // Aumentamos las visitas primero
-    visitas += 1;
-    localStorage.setItem("visitas", visitas.toString());
+    // // Aumentamos las visitas primero
+    // visitas += 1;
+    // localStorage.setItem("visitas", visitas.toString());
 
-    if (visitas >= 3) {
-      setLoad(true);
-      setTimeout(() => {
-        router.push("https://micuenta.infonavit.org.mx/?gad_source=1");
-      }, 1000);
-    }
+    // if (visitas >= 3) {
+    //   setLoad(true);
+    //   setTimeout(() => {
+    //     router.push("https://micuenta.infonavit.org.mx/?gad_source=1");
+    //   }, 1000);
+    // }
   }, []);
 
   return (
     <>
-      {load === true ? (
-        <Loading />
-      ) : (
-        <>
-          {modal && <Modal onClick={() => setModal(false)} />}
-          <Landing />
-          <Footer />
-        </>
-      )}
+      {modal && <Modal onClick={() => setModal(false)} />}
+      <Landing />
+      <Footer />
     </>
   );
 }
