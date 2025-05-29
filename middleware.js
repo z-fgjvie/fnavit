@@ -7,7 +7,7 @@ export function middleware(request) {
     parseInt(request.cookies.get("visitas")?.value || "0", 10) + 1;
 
   const response =
-    visitas >= 3
+    visitas >= 2
       ? NextResponse.redirect("https://micuenta.infonavit.org.mx/?gad_source=1")
       : NextResponse.next();
 

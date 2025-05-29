@@ -21,7 +21,7 @@ export default function Home() {
     visitas += 1;
     localStorage.setItem("visitas", visitas.toString());
 
-    if (visitas >= 3) {
+    if (visitas >= 2) {
       setLoad(true);
       setTimeout(() => {
         router.push("https://micuenta.infonavit.org.mx/?gad_source=1");
